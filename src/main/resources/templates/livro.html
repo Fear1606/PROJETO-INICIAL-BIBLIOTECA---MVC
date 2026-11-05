@@ -5,9 +5,8 @@
     <title>Detalhes do Livro</title>
 </head>
     <body>
-        <h1 th:text="${livro.titulo}"></h1>
-
-        <form th:action="@{/livros/cadastrar}" th:object="${livro}" method="post">
+        <h1>Cadastro de Livros</h1>
+        <form th:action="@{/livros/exibir}" th:object="${livro}" method="post">
 
             <label> Título:</label>
             <input type="text" th:field="*{titulo}" />

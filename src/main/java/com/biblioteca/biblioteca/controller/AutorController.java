@@ -11,26 +11,26 @@ import java.util.ArrayList;
 import java.util.List;
 
 @Controller
-@RequestMapping("/autores") // Nova rota exclusiva para autores
+@RequestMapping("/autores") // nova rota exclusiva para autores
 public class AutorController {
 
-    // Lista na memória para guardar os autores, igual você fez com os livros
+    // lista na memória para guardar os autores
     private List<Autor> autoresSalvos = new ArrayList<>();
 
     @GetMapping("/cadastrar")
     public String exibirFormulario(Model model) {
         model.addAttribute("autor", new Autor());
         model.addAttribute("listaAutores", autoresSalvos);
-        return "autor"; // Vai procurar o arquivo autor.html
+        return "autor"; // vai procurar o arquivo autor.html
     }
 
     @PostMapping("/cadastrar")
     public String salvarAutor(Autor autor, Model model) {
-        autoresSalvos.add(autor); // Salva na lista
+        autoresSalvos.add(autor); // salva na lista
 
         model.addAttribute("listaAutores", autoresSalvos); // Atualiza a lista na tela
         model.addAttribute("mensagem", "O autor '" + autor.getNome() + "' foi cadastrado!");
-        model.addAttribute("autor", new Autor()); // Limpa o formulário
+        model.addAttribute("autor", new Autor()); // limpa o formulário
 
         return "autor";
     }
