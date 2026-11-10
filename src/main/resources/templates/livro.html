@@ -19,12 +19,17 @@
 
             <button type="submit">Cadastrar</button>
 
+            <label>Categoria:</label>
+            <select     th:field="*{categoria}">
+                <option th:each="cat : ${categoria}" th:value="${cat}" th:text="${cat}"></option>
+            </select>
+
         </form>
         <hr>
         <h3>Livros Cadastrados:</h3>
         <ul>
             <li th:each="item : ${listaLivros}">
-                <strong th:text="${item.titulo}"></strong> - <span th:text="${item.autor}"></span>
+                <strong th:text="${item.titulo}"></strong> - <span th:text="${item.autor}"></span> - <span th:text="${item.categoria}"></span>
             </li>
         </ul>
 

@@ -12,6 +12,7 @@ public class Livro {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
+    private String categoria; // Como string para simplificar
     private String titulo;
     private String autor;
     private String isbn;
@@ -19,10 +20,11 @@ public class Livro {
     public Livro() {
     }
 
-    public Livro(String titulo, String autor, String isbn) {
+    public Livro(String titulo, String autor, String isbn, String categoria) {
         this.titulo = titulo;
         this.autor = autor;
         this.isbn = isbn;
+        this.categoria = categoria;
     }
 
     public Long getId() {
@@ -55,5 +57,13 @@ public class Livro {
 
     public void setIsbn(String isbn) {
         this.isbn = isbn;
+    }
+
+    public String getCategoria() {
+        return categoria;
+    }
+
+    public void setCategoria(String categoria) {
+        this.categoria = categoria;
     }
 }

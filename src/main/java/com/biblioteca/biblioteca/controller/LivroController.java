@@ -6,6 +6,9 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.Arrays;
+import java.util.List;
+
 @Controller
 @RequestMapping("/livros")
 public class LivroController {
@@ -15,6 +18,8 @@ public class LivroController {
     public LivroController(LivroRepository repository) {
         this.repository = repository;
     }
+
+
 
     @GetMapping
     public String inicio(){
@@ -42,5 +47,9 @@ public class LivroController {
     public String excluir(@PathVariable Long id) {
         repository.deleteById(id);
         return "redirect:/livros/exibir";
+    }
+    @ModelAttribute("categoria")
+    public List<String> ListarCategorias() {
+        return Arrays.asList("Ficção", "Não Ficção", "Romance", "Fantasia", "Biografia");
     }
 }
